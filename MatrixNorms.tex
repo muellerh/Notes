@@ -1,0 +1,439 @@
+\documentclass[a4paper
+               ,12pt
+               ,DIV=12
+               ,oneside
+               ]
+               {amsart}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}  
+\usepackage{amsthm}
+
+\theoremstyle{plain}               
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+
+
+
+%\bibliographystyle{unsrt} %alpha? plain? 
+
+% Some useful shortcuts for symbols and frequent commands
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bq{\begin{quote}}
+\def\eq{\end{quote}}
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+\def\bit{\begin{itemize}}
+\def\eit{\end{itemize}}
+\def\nn{\nonumber}
+\def\fr{\frac}
+\def\hl{\hline}
+\def\ra{\rightarrow}
+\def\Ra{\Rightarrow}
+\def\la{\leftarrow}
+\def\La{\Leftarrow}
+\def\lb{\left(}
+\def\rb{\right)}
+\def\lset{\lbrace}
+\def\rset{\rbrace}
+\def\lk{\left\langle}
+\def\rk{\right\rangle}
+\def\l|{\left|}
+\def\r|{\right|}
+\def\lbr{\left[}
+\def\rbr{\right]}
+\def\i{\text{id}}
+\newcommand\C{\mathbb{C}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\N{\mathbb{N}}
+\newcommand\M{\mathfrak{M}}
+\newcommand\B{\mathcal{B}}
+\newcommand\Bo{\mathfrak{B}}
+\newcommand\Co{\mathfrak{C}}
+\newcommand\Hi{\mathfrak{h}}
+\newcommand\Proj{\mathfrak{P}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand\F{\mathbb{F}}
+\newcommand{\Tm}{\mathcal{T}}
+\newcommand{\Rm}{\mathcal{R}}
+\newcommand{\Sm}{\mathcal{S}}
+\newcommand{\Em}{\mathcal{E}}
+\newcommand{\Dm}{\mathcal{D}}
+\newcommand{\Cm}{\mathcal{C}}
+\newcommand{\Lm}{\mathcal{L}}
+\newcommand{\Km}{\mathcal{K}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Hm}{\mathcal{H}}
+\newcommand{\Pm}{\mathcal{P}}
+\newcommand{\Gm}{\mathcal{G}}
+\newcommand{\Xst}{X}
+\newcommand{\Yst}{Y}
+\newcommand{\LN}{\mathcal{LN}}
+%\newcommand\Unity{\mathds{1}}
+
+
+
+\begin{document}
+
+\section*{Norms of Matrix Maps}
+
+In this appendix we will introduce norms on spaces of matrix maps, which we use frequently in our argumentation. In particular we will introduce the cb-norm together with its dual the $\diamond-$norm and give proofs for properties of these norms. 
+
+We begin with the definition of two simpler norms, which will be used later to define the cb- and $\diamond-$norm.
+
+%We will start with the famous Schmidt-decomposition, which is a useful tool in quantum information theory. 
+%
+%\begin{lem}$\lb\text{Schmidt-decomposition}\rb$
+%
+%Let $\l|\psi\rk\in\C^{n_A}\otimes\C^{n_B}$ be a vector in a bipartite Hilbert space, then there exist orthonormal bases $\lset\l|k_A\rk\rset^{n_A}_{k=1}\subset\C^{n_A}$, $\lset\l|k_B\rk\rset^{n_B}_{k=1}\subset\C^{n_B}$ and $\lset \lambda_k\rset^{\min\lb n_A,n_B\rb}_{k=1}\subset\R_{0}^{+}$ such that 
+%\begin{align*}
+%\l|\psi\rk = \sum^{\min\lb n_A,n_B\rb}_{k=1}\lambda_k \l|k_A\rk\otimes \l|k_B\rk 
+%\end{align*}
+%
+%the $\lset \lambda_k\rset^{\min\lb n_A,n_B\rb}_{k=1}\subset\R_{0}^{+}$ are called \textbf{Schmidt-coefficients} of $\l|\psi\rk\in\C^{n_A}\otimes\C^{n_B}$ with respect to the partition (A:B). 
+%
+%The number $\text{SR}\lb\l|\psi\rk\rb :=\max\lb k\in\N:\lambda_k\neq 0\rb\leq \min\lb n_A,n_B\rb$ is called \textbf{Schmidt-rank} of $\l|\psi\rk\in\C^{n_A}\otimes\C^{n_B}$ with respect to the partition (A:B).
+%\label{lem:SchmidtDecomp}
+%\end{lem}
+%\begin{proof}
+%
+%We can write $\l|\psi\rk\in\C^{n_A}\otimes\C^{n_B}$ in an arbitrary orthonormal product basis as
+%\begin{align*}
+%\l|\psi\rk = \sum_{i,j} c_{ij}\l| i\rk\otimes\l| j\rk\medspace.
+%\end{align*}
+%A singular value decomposition of the matrix $\lb C\rb_{i,j}=c_{ij}$ gives
+%\begin{align*}
+%\l|\psi\rk &= \sum_{i,j} c_{ij}\l| i\rk\otimes\l| j\rk \\
+%&= \sum_{i,j,k} u_{i,k}\lambda_k v_{k,j}\l| i\rk\otimes\l| j\rk \\
+%&= \sum_{k} \lambda_k \lb\sum_{i} u_{i,k}\l| i\rk\rb\otimes \lb\sum_{j}v_{k,j}\l| j\rk\rb \\
+%&= \sum_{k} \lambda_k \l| k_A\rk \otimes \l| k_B\rk\medspace, \\
+%\end{align*}
+%where we denoted the singular values of C by $\lset\lambda_k\rset_k$ and used that a unitary transformation of an orthonormal basis gives again an orthonormal basis. 
+%
+%\end{proof}
+%
+%The Schmidt-Rank can be seen as a measure of entanglement for pure bipartite states. A low Schmidt-Rank leads , via the above decomposition, to a more efficient representation of the state, as the basis vectors corresponding to zero Schmidt-coefficients can be discarded. 
+% 
+%Another way of viewing the Schmidt-decomposition is the following:
+%
+%\begin{cor}
+%
+%Let $\l|\psi\rk\in\C^{n_A}\otimes\C^{n_B}$ be a vector in a bipartite Hilbert space, then there exists a matrix $A\in \M_{n_A,n_B}$, with $\text{rank}\lb A\rb = \text{SR}\lb\l|\psi\rk\rb$ such that 
+%\begin{align*}
+%\l|\psi\rk &= \lb I_{n_A}\otimes A\rb\l|\Omega_{n_A}\rk \\
+%&= \lb A^{T}\otimes I_{n_B}\rb\l|\Omega_{n_B}\rk\medspace,
+%\end{align*}
+%for maximally entangled vectors $\Omega_{n_A}=\sum^{n_A}_{i=1} \l| ii\rk \in \C^{n_A}\otimes\C^{n_A}$, $\Omega_{n_B}=\sum^{n_B}_{i=1} \l| ii\rk \in \C^{n_B}\otimes\C^{n_B}$.
+%\end{cor}
+%
+%\begin{proof}
+%
+%Take the Schmidt-decomposition 
+%\begin{align*}
+%\l|\psi\rk = \sum^{\min\lb n_A,n_B\rb}_{k=1}\lambda_k \l|k_A\rk\otimes \l|k_B\rk\medspace. 
+%\end{align*}
+%Now we can choose $A=\sum_k \lambda_k  \l|k_B\rk\lk k_A\r|$ and a simple calculation shows the corollary.
+%
+%\end{proof}
+%
+%Now we are in the position to use the Schmidt-decomposition to prove some important properties of the following norms. 
+
+\begin{defn}$\lb\infty\ra\infty\text{-norm},1\ra 1\text{-norm}\rb$
+
+For a map $\Tm :\M_n\ra \M_m$ we define the norms 
+
+\begin{align*}
+\| \Tm\|_{\infty\ra\infty} := \text{sup}\lset \| \Tm\lb\Xst\rb\|_{\infty}:\Xst\in\M_n,\|\Xst\|_\infty = 1\rset
+\end{align*}
+and
+\begin{align*}
+\| \Tm\|_{1\ra 1} := \text{sup}\lset \| \Tm\lb\Xst\rb\|_{1}:\Xst\in\M_n,\|\Xst\|_1 = 1\rset\medspace.
+\end{align*}
+
+Here we used the usual $\infty$-, and trace-norm for matrices $\Xst\in\M_m$, which are defined as
+\begin{align*}
+\| \Xst\|_{\infty} := s_1
+\end{align*}
+and
+\begin{align*}
+\| \Xst\|_{1} := \sum^{m}_{i=1} s_i\medspace,
+\end{align*}
+where $\lb s_i\rb^m_{i=1}\subset\lb\R_0^+\rb^m$ denotes the singular values of $\Xst$ in decreasing order.
+
+\end{defn}
+
+The following properties of these norms will lead to similar properties of the cb-norm and the $\diamond-$norm. 
+
+It follows directly from the duality of the trace- and the $\infty$-norm for matrices $\Xst\in\M_m$, that also the $1\ra 1-$norm and the $\infty\ra\infty-$norm are duals to each other. Furthermore we get:  
+
+\begin{lem}$\lb \text{Properties}\rb$
+
+For all maps $\Tm :\M_n\ra\M_m$ and $\Sm:\M_k\ra\M_n$ we have
+
+\begin{itemize}
+\item $\| \Tm\|_{\infty\ra\infty} = \| \Tm^{*}\|_{1\ra 1}$ $\lb\text{Duality}\rb$.
+\item $\| \Tm\circ \Sm\|_{\infty\ra\infty}\leq \| \Tm\|_{\infty\ra\infty}\| \Sm\|_{\infty\ra\infty}$ $\lb\text{Submultiplicativity}\rb$.
+\item $\| \Tm\circ \Sm\|_{1\ra 1}\leq \| \Tm\|_{1\ra 1}\| \Sm\|_{1\ra 1}$ $\lb\text{Submultiplicativity}\rb$.
+\end{itemize}
+
+\end{lem}
+
+The above properties are useful in calculations, but there is another property that we need in our argumentation. Namely that for every $\Tm\in\mathcal{P}\lb \M_n,\M_m\rb$ we have $\| \Tm\|_{\infty\ra\infty}=\| \Tm\lb I\rb\|_{\infty}$. This is known as the Russo-Dye-Theorem and we will follow ~\cite{Bhatia2} in the proofs.
+
+\begin{lem}$\lb\text{See ~\cite{Bhatia2}}\rb$
+
+For $A,B\in\M_n$ strictly positive we have
+\begin{align*}
+\begin{pmatrix} A & X \\ X^{*} & B \end{pmatrix} \geq 0 \Longleftrightarrow A\geq XB^{-1}X^{*}.
+\end{align*}
+\label{lem:positivity}
+\end{lem}
+
+\begin{proof}
+
+The similarity transformation 
+\begin{align*}
+\begin{pmatrix} A & X \\ X^{*} & B \end{pmatrix} \sim \begin{pmatrix} I & -XB^{-1} \\ 0 & I \end{pmatrix}\begin{pmatrix} A & X \\ X^{*} & B \end{pmatrix}\begin{pmatrix} I & 0 \\ -B^{-1}X^{*} & I \end{pmatrix}=\begin{pmatrix} A-XB^{-1}X^{*} & 0 \\ 0 & B \end{pmatrix}\medspace,
+\end{align*}
+shows the lemma.
+
+\end{proof}
+
+We are now able to prove Choi's inequality.
+
+\begin{lem}$\lb\text{Choi's Inequality. ~\cite{Bhatia2}}\rb$
+
+For $\Tm\in\mathfrak{P}\lb \M_n,\M_m\rb$ and unital then we have
+\begin{align*}
+\Tm\lb A\rb \Tm\lb A^{*}\rb \leq \Tm\lb A^{*}A\rb 
+\end{align*} 
+and
+\begin{align*}
+\Tm\lb A^{*}\rb\Tm\lb A\rb \leq \Tm\lb A^{*}A\rb 
+\end{align*} 
+for all normal $A\in\M_n$.
+\label{lem:ChoiInequ}
+\end{lem}
+
+\begin{proof}
+
+We will only proof the first inequality as the second one works the same way. By the spectral decomposition we can write 
+\begin{align*}
+A=\sum_i r_i \l| i\rk\lk i\r|\medspace,
+\end{align*}
+with projectors $\lset \l| i\rk\lk i\r|\rset$ such that $\sum_i \l| i\rk\lk i\r| = I$ and $\lset r_i\rset\subset\C$. 
+We also get 
+\begin{align*}
+A^{*}=\sum_i \overline{r_i} \l| i\rk\lk i\r|
+\end{align*}
+and
+\begin{align*}
+A^{*}A=\sum_i \l|r_i\r|^2 \l| i\rk\lk i\r|\medspace.
+\end{align*}
+But this gives 
+\begin{align*}
+\begin{pmatrix} \Tm\lb A^{*}A\rb & \Tm\lb A\rb \\ \Tm\lb A^{*}\rb & I \end{pmatrix} = \sum_i \begin{pmatrix} \l|r_i\r|^2 & r_i \\ \overline{\lambda_i} & 1 \end{pmatrix}\otimes \Tm\lb\l|i\rk\lk i\r|\rb\medspace,
+\end{align*}
+ 
+which is positive and Lemma \ref{lem:positivity} finishes the proof.  
+
+\end{proof}
+
+We will now proceed and prove the Russo-Dye Theorem which is of great importance in the study of positive matrix maps. 
+
+\begin{thm}$\lb\text{Russo-Dye Theorem. ~\cite{Bhatia2}}\rb$
+
+If $\Tm\in\mathfrak{P}\lb \M_n,\M_m\rb$ we have
+\begin{align*}
+\| \Tm\|_{\infty\ra\infty} = \| \Tm\lb I\rb\|_\infty\medspace.
+\end{align*}
+\label{thm:RussoDye}
+\end{thm}
+
+\begin{proof}
+
+First assume that T is unital. For $\| A\|_\infty\leq 1$ consider 
+\begin{align*}
+U_A = \begin{pmatrix} A & -\lb I-AA^{*}\rb^{\frac{1}{2}} \\  \lb I-A^{*}A\rb^{\frac{1}{2}} & A^{*} \end{pmatrix}\in\M_{2n}\medspace.
+\end{align*}
+
+A simple calculation shows that $U_A$ is unitary. 
+
+Consider now the positive and unital map 
+\begin{align*}
+\Tm\circ C_{n}:\M_{2n}\ra\M_m\medspace,
+\end{align*}
+where $\Cm_{n}:\M_{2n}\ra\M_n$ is defined as $\Cm_{n}\lb A\rb = \lb A\rb_{1:n,1:n}$. Applying Lemma \ref{lem:ChoiInequ} to $\Tm\circ \Cm_{n}$ and the unitary, hence normal, matrix $U_A$ we get
+\begin{align*}
+\lb \Tm\circ \Cm_n\lb U_A\rb\rb\lb \Tm\circ \Cm_n\lb U^{*}_A\rb\rb\leq \Tm\circ \Cm_n\lb I\rb\medspace. 
+\end{align*}
+Using the definition of $U_A$ and $\Cm_n$ this gives
+\begin{align*}
+\Tm\lb A\rb \Tm\lb A^{*}\rb \leq I\medspace.
+\end{align*}
+But this leads to $\|\Tm\lb A\rb\|_{\infty}\leq 1$ whenever $\|A\|_{\infty}\leq 1$, which shows $\| \Tm\|_{\infty\ra\infty} = 1 =\| \Tm\lb I\rb\|_\infty$ for all unital $\Tm\in\mathfrak{P}\lb \M_n,\M_m\rb$. 
+
+For an arbitrary $\Tm\in\mathfrak{P}\lb \M_n,\M_m\rb$ assume that $\Tm\lb I\rb$ is invertible and consider the unital map $\widehat{\Tm}\in\mathfrak{P}\lb \M_n,\M_m\rb$
+\begin{align*}
+\widehat{\Tm}=\lb \Tm\lb I\rb\rb^{-1/2}\Tm\lb A\rb\lb \Tm\lb I\rb\rb^{-1/2}\medspace.
+\end{align*}
+
+By submultiplicativity of the norms we get
+\begin{align*}
+\| \Tm\lb A\rb\|_{\infty}\leq \| \Tm\lb I\rb\|_\infty\| \widehat{\Tm}\lb A\rb\|_\infty\leq \| \Tm\lb I\rb\|_\infty\| A\|_\infty\medspace,
+\end{align*}
+where we used the calculation for unital and positive $\widehat{\Tm}$. This means that in the case where $\Tm\lb I\rb$ is invertible, we get $\| \Tm\|_{\infty\ra\infty} = \| \Tm\lb I\rb\|_\infty$. In the general case we apply a standard continuity argument on the family $T_\epsilon\lb A\rb = \Tm\lb A\rb + \epsilon I$, for which $T_\epsilon\lb I\rb$ is invertible, which finishes the proof. 
+
+\end{proof}
+
+By duality we immediately get the following:
+
+\begin{thm}
+
+If $\Tm\in\mathfrak{P}\lb \M_n,\M_m\rb$ we have
+\begin{align*}
+\| \Tm\|_{1\ra 1} = \| \Tm^{*}\lb I\rb\|_1\medspace.
+\end{align*}
+\label{thm:RussoDye2}
+\end{thm}
+
+This shows that for the $\infty\ra\infty$-norm the positive unital maps and for the $1\ra 1$-norm the positive trace-preserving maps have norm 1. Surprisingly also the converse holds true:
+
+\begin{thm}$\lb\text{~\cite{Bhatia2}}\rb$
+
+For $\Tm :\M_n\ra\M_m$ linear and unital we have
+\begin{align*}
+\lbr\| \Tm\|_{\infty\ra\infty} = 1\rbr \Rightarrow \Tm\text{ positive}\medspace.
+\end{align*}
+\label{thm:RussoDyeBack}
+\end{thm} 
+
+\begin{proof}
+
+Assume first that $m=1$, i.e. $\Tm$ is a linear, unital functional on $\M_n$.
+
+Take $A\in\M^+_n$ and we denote $a=\text{min}\lb\text{spec}\lb A\rb\rb\in\R_0^{+}$, $b=\text{max}\lb\text{spec}\lb A\rb\rb\in\R_0^{+}$. 
+
+Assuming $\R\ni\Tm\lb A\rb\notin\lbr a,b\rbr$, then there is a disk $\mathfrak{D}_r\lb z_0\rb$ with radius $r\in\R^+$ and center $z_0\in\C$ such that $\Tm\lb A\rb\notin \mathfrak{D}_r\lb z_0\rb$, but
+\begin{align*}
+\text{spec}\lb A\rb\subset\lbr a,b\rbr\subset \mathfrak{D}_r\lb z_0\rb\medspace .
+\end{align*} 
+From the latter property, we obtain
+\begin{align*}
+\text{spec}\lb A-z_0\rb\subset \mathfrak{D}_r\lb 0\rb 
+\end{align*}
+and therefore $\| A-z_0\|_\infty\leq r$.
+
+But this leads, using unitality and the norm property, to 
+\begin{align*}
+\l| \Tm\lb A\rb - z_0\r|= \l| \Tm\lb A - z_0 I_n\rb\r|\leq \|\Tm\|_{\infty\ra\infty}\| A-z_0\|_\infty\leq r
+\end{align*}
+which contradicts $\Tm\lb A\rb\notin \mathfrak{D}_r\lb z_0\rb$ and shows the assumption for a functional. 
+
+For arbitrary $m\in\N$, we define the functional $\widehat{\Tm}_x:\M_n\ra\C$, for a vector $\l|x\rk\in C^m$, via
+\begin{align*}
+\widehat{\Tm}_x\lb A\rb = \lk x\r|\Tm\lb A\rb\l| x\rk\medspace .
+\end{align*}
+
+For every $\l|x\rk\in C^m$ the above functional is linear and unital. Furthermore we have $\| \widehat{\Tm}_x\|_{\infty\ra\infty}\leq \| \Tm\|_{\infty\ra\infty}\leq 1$ according to the assumption. The above calculation shows that $\widehat{\Tm}_x$ is positive for every $\l|x\rk\in C^m$, but this is exactly the condition for positivity of $\Tm$.
+
+\end{proof}
+
+Again we can easily show the dual version:
+
+\begin{thm}
+
+For $\Tm :\M_n\ra\M_m$ linear and trace-preserving we have
+\begin{align*}
+\lbr\| \Tm\|_{1\ra 1} = 1\rbr \Rightarrow \Tm\text{ positive}\medspace.
+\end{align*}
+\label{thm:RussoDyeBack2}
+\end{thm} 
+
+We want to have useful norms for maps arising in quantum information theory. One property that such a norm should have, is stability under the transformation $\Tm\mapsto \i_k\otimes \Tm$, i.e. tensoring of an identity of arbitrary dimension. It should not matter if we take an arbitrary environment and define a quantum channel, which acts trivially on the environment and as $\Tm$ on the system. That this is not the case for the above norms can be seen by considering the transposition map. We introduce the following stabilized versions, which are called the cb-norm and its dual the $\diamond$-norm. These norms are invariant under tensoring of an identity.
+
+\begin{defn}$\lb\text{cb-norm},\diamond\text{-norm}\rb$
+
+For a map $\Tm :\M_n\ra \M_m$ we define the \textbf{cb-Norm} as
+
+\begin{align*}
+\| \Tm\|_{\text{cb}} = \text{sup}_{k\in\N} \|\i_k\otimes \Tm\|_{\infty\ra\infty}
+\end{align*}
+and the $\diamond$\textbf{-Norm} as
+\begin{align*}
+\| \Tm\|_{\diamond} = \text{sup}_{k\in\N} \|\i_k\otimes \Tm\|_{1\ra 1}\medspace.
+\end{align*}
+
+\end{defn}
+
+These norms have many nice properties, which we will sketch in the following. First we can establish the connection between the two norms. We have the following, which mostly follows from the properties of the $\infty\ra\infty$- and $1\ra 1$-norm :
+
+\begin{lem}$\lb \text{Properties}\rb$
+
+For all maps $\Tm :\M_n\ra\M_m$, $\Sm:\M_k\ra\M_n$ and $\Rm:\M_k\ra\M_l$ we have
+
+\begin{itemize}
+\item $\| \Tm\|_{cb} = \| \Tm^{*}\|_{\diamond}$ $\lb\text{Duality}\rb$.
+\item $\| \Tm\circ \Sm\|_{cb}\leq \| \Tm\|_{cb}\| \Sm\|_{cb}$ $\lb\text{Submultiplicativity}\rb$.
+\item $\| \Tm\circ \Sm\|_{\diamond}\leq \| \Tm\|_{\diamond}\| \Sm\|_{\diamond}$ $\lb\text{Submultiplicativity}\rb$.
+\item $\| \Tm\otimes \Rm\|_{cb}= \| \Tm\|_{cb}\| \Rm\|_{cb}$ $\lb\text{Cross-norm Property}\rb$.
+\item $\| \Tm\otimes \Rm\|_{\diamond}= \| \Tm\|_{\diamond}\| \Rm\|_{\diamond}$ $\lb\text{Cross-norm Property}\rb$.
+\end{itemize}
+
+\end{lem}
+
+From the properties of the $\infty\ra\infty-$ and the $1\ra 1-$norm, namely Theorems \ref{thm:RussoDye}, \ref{thm:RussoDye2}, \ref{thm:RussoDyeBack} and \ref{thm:RussoDyeBack2}, we get:
+
+\begin{thm}
+
+If $\Tm\in\mathfrak{CP}\lb \M_n,\M_m\rb$ we have
+\begin{align*}
+\| \Tm\|_{\text{cb}} = \| \Tm\|_{\infty\ra\infty} = \| \Tm\lb I\rb\|_\infty
+\end{align*}
+
+and
+
+\begin{align*}
+\| \Tm\|_{\diamond} = \| \Tm\|_{1\ra 1} = \| \Tm^{*}\lb I\rb\|_1\medspace.
+\end{align*}
+
+\label{thm:cbNormCP}
+
+\end{thm}
+
+\begin{proof}
+
+As $\Tm\in\mathfrak{CP}\lb \M_n,\M_m\rb$ means, that $\i_k\otimes \Tm$ is positive for all $k\in\N$, we get the Theorem immediately from the Russo-Dye Theorem, Theorem \ref{thm:RussoDye}, and its corollaries.
+
+\end{proof}
+
+To conclude this appendix, we will state one important inequality for the cb-norm. The following bound is due to Smith
+
+\begin{thm}$\lb \text{See ~\cite{Paulsen2003}}\rb$
+
+For a map $\Tm:\M_n\ra\M_m$, we have
+\begin{align*}
+\|\Tm\|_{\text{cb}} = \|\i_m\otimes \Tm\|_{\infty\ra\infty}\leq m\|\Tm\|_\infty\medspace .
+\end{align*}
+
+\label{thm:Smith}
+
+\end{thm}
+
+
+\bibliographystyle{alpha}%abbrv	
+\bibliography{mybibliography}
+
+
+\end{document}
