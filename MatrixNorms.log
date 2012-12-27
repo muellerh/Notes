@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.29)  27 DEC 2012 01:35
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.29)  27 DEC 2012 02:24
 entering extended mode
  %&-line parsing enabled.
 **MatrixNorms.tex
@@ -144,68 +144,45 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 87.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+euf on input line 154.
+LaTeX Font Info:    Try loading font information for U+euf on input line 162.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
-)
-
-LaTeX Warning: Citation `Bhatia2' on page 1 undefined on input line 192.
-
-
-LaTeX Warning: Citation `Bhatia2' on page 1 undefined on input line 194.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (53.2342pt too wide) in paragraph at lines 208--208
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (53.2342pt too wide) in paragraph at lines 216--216
 [] 
  []
 
-
-LaTeX Warning: Citation `Bhatia2' on page 2 undefined on input line 215.
-
-
-LaTeX Warning: Citation `Bhatia2' on page 2 undefined on input line 255.
-
-[2]
-
-LaTeX Warning: Citation `Bhatia2' on page 3 undefined on input line 313.
-
-[3] [4]
-
-LaTeX Warning: Citation `Paulsen2003' on page 5 undefined on input line 423.
-
-No file MatrixNorms.bbl.
-[5] (./MatrixNorms.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[2] [3] [4] (./MatrixNorms.bbl [5]) [6] (./MatrixNorms.aux) ) 
 Here is how much of TeX's memory you used:
- 1707 strings out of 495061
- 17985 string characters out of 1182621
+ 1709 strings out of 495061
+ 18023 string characters out of 1182621
  72107 words of memory out of 3000000
- 4749 multiletter control sequences out of 15000+50000
- 13627 words of font info for 52 fonts, out of 3000000 for 9000
+ 4750 multiletter control sequences out of 15000+50000
+ 13653 words of font info for 52 fonts, out of 3000000 for 9000
  189 hyphenation exceptions out of 8191
- 34i,15n,31p,694b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12
-.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb><
-/usr/share/texmf-texlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MatrixNorms.pdf (5 pages, 188407 bytes).
+ 34i,15n,32p,694b,312s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+mi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/euler/eufm10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
+s/symbols/msam10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
+ols/msbm10.pfb>
+Output written on MatrixNorms.pdf (6 pages, 230093 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
